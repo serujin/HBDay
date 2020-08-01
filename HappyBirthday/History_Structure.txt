@@ -1,0 +1,30 @@
+Cada minijuego es una Screen nueva
+
+El menú entre minijuegos es también otra Screen
+
+Cada minijuego tiene sus propios objetos, unos movibles y otros no (a pesar de que se pueda mover toda la escena para simular movimiento)
+
+Todos los objetos se construirán con GameObject (o hederarán de él), donde se tratará: Sprite, X, Y, Width, Height
+
+Cada screen tendrá varias capas de dibujo (hasta 5 capas, 5 arraylist de GameObject)
+
+main:
+	- Main
+model:
+	- Scene
+	- GameObject
+scenes (todo serán elementos que hereden de Scene):
+	- Introduction
+	- MainMenu
+	- MovingToMadrid
+	- NewHouse
+	- University
+	- Halloween
+	- Cuenca
+	- Quarantine
+	- FinalExams
+	- DrivingLessons
+	- Summer
+io:
+	- 
+

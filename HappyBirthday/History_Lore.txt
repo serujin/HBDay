@@ -1,0 +1,26 @@
+El juego consistirá en distintos minijuegos/puzles simbolizando los distintos eventos que Lorena ha ido superando a lo largo del año.
+
+El juego irá en orden cronológico en distintos eventos que han ido sucediendo en el año.
+
+Ideas para minijuegos:
+	- Mudanza a madrid -> Ordenar y empaquetar elementos para meterlos en una maleta, que van cayendo, para posteriormente ir al avión.
+	- Inicio en la universidad -> Coger el bus para ir a la universidad y descubrirla/explorarla.
+	- Halloween -> Personaliza a tu personaje y a su novio para ir a la fiesta, en la fiesta hay música y los personajes bailan.
+	- Cuenca -> Levantarse pronto e intentar ir al bus con dificultades, por ir cansados, posteriormente visitar la ciudad.
+	- Cuarentena -> Estar todo el día en chándal/pijama, cocinar con tu novio cosas ricas, bajar a Rex y hacer cosas de clase.
+	- Prácticas de conducir -> Coger un coche y dar vueltas por la ciudad de Ibiza. 
+	- Verano -> Meterse en la playa/piscina y disfrutar del verano (Fin del Juego)
+
+Menú principal con todos los puzles, los que no estén completados estarán tapados por niebla, para no hacer spoilers.
+
+Cuando acabes un puzle habrá una transición para cambiar de evento/puzle.
+
+Si acabas todos los puzles aparecerá una escena final con la canción del cumpleaños feliz y distintas imágenes nuestras.
+
+Cada puzle deberá tener una pequeña guía para facilitar todo (una simple hoja de papel antes de cada puzle o algo así)
+
+La idea es que los puzles no sean muy largos para poder acabarlos todos en +/- 30 minutos o así
+
+
+
+
