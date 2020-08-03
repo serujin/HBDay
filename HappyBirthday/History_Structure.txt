@@ -25,6 +25,4 @@ scenes (todo serán elementos que hereden de Scene):
 	- FinalExams
 	- DrivingLessons
 	- Summer
-io:
-	- 
 

@@ -48,7 +48,7 @@ public class Halloween extends Scene {
 		shoes = new Button(buttonX[4], 910, 20, 10, batch);
 		home = new Home(1000, 300, batch);
 		cake = new Cake(45, 45, batch);
-		scene = 2;
+		scene = 0;
 		startEvents();
 	}
 

@@ -74,7 +74,7 @@ public class Cuenca extends Scene {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					moveAll(5, -1, 0);
+					moveAll(10, -1, 0);
 					x = we.getPosition()[0];
 					if(x < -340) {
 						scene++;

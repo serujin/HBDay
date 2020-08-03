@@ -50,12 +50,12 @@ public class Assets {
 	
 	private static void initBackgrounds() {
 		introductionBg = null;
-		mainMenuBg = initSprite(loadTexture("mainmenu", "MainMenuBG", "png"));
-		movingToMadridBg = initSprite(loadTexture("movingtomadrid", "RoomBG", "png"));
-		universityBg = initSprite(loadTexture("university", "UniversityBG", "png"));
-		halloweenBg = initSprite(loadTexture("halloween", "HalloweenBG", "png"));
-		cuencaBg = initSprite(loadTexture("cuenca", "CuencaBg", "png"));
-		quarantineBg = null;
+		mainMenuBg = initSprite(loadTexture("mainmenu", "MainMenuBG"));
+		movingToMadridBg = initSprite(loadTexture("movingtomadrid", "RoomBG"));
+		universityBg = initSprite(loadTexture("university", "UniversityBG"));
+		halloweenBg = initSprite(loadTexture("halloween", "HalloweenBG"));
+		cuencaBg = initSprite(loadTexture("cuenca", "CuencaBg"));
+		quarantineBg = initSprite(loadTexture("quarantine", "SanseRoom"));
 		drivingLessonsBg = null;
 		summerBg = null;
 	}
@@ -67,7 +67,7 @@ public class Assets {
 	}
 	
 	private static Sprite[] initMainMenuGraphics() {
-		Texture mainMenu = loadTexture("mainmenu", "MainMenu", "png");
+		Texture mainMenu = loadTexture("mainmenu", "MainMenu");
 		TextureRegion blue1 = extract(mainMenu, 0, 0, 1, 1);
 		TextureRegion blue2 = extract(mainMenu, 1, 0, 1, 1);
 		TextureRegion blue3 = extract(mainMenu, 2, 0, 1, 1);
@@ -87,7 +87,7 @@ public class Assets {
 	}
 	
 	private static Sprite[] initMovingToMadridGraphics() {
-		Texture movingToMadrid = loadTexture("movingtomadrid", "Room", "png");
+		Texture movingToMadrid = loadTexture("movingtomadrid", "Room");
 		TextureRegion[] suitcase = new TextureRegion[] {
 			extract(movingToMadrid, 0, 0, 1, 1),
 			extract(movingToMadrid, 1, 0, 1, 1),
@@ -125,7 +125,7 @@ public class Assets {
 	}
 	
 	private static Sprite[] initUniversityGraphics() {
-		Texture university = loadTexture("university", "University", "png");
+		Texture university = loadTexture("university", "University");
 		TextureRegion lorena =   extract(university, 0, 0, 1, 2);
 		TextureRegion guy1 =     extract(university, 0, 2, 1, 2);
 		TextureRegion guy2 =     extract(university, 1, 2, 1, 2);
@@ -151,7 +151,7 @@ public class Assets {
 	}
 	
 	private static Sprite[] initHalloweenGraphics() {
-		Texture halloween = loadTexture("halloween", "Halloween", "png");
+		Texture halloween = loadTexture("halloween", "Halloween");
 		TextureRegion lorenaNaked = extract(halloween, 0, 0, 1, 2);
 		TextureRegion lorenaBody =  extract(halloween, 2, 0, 1, 2);
 		TextureRegion lorenaFace =  extract(halloween, 4, 0, 1, 2);
@@ -185,12 +185,12 @@ public class Assets {
 			initSprite(cake2),
 			initSprite(cake3),
 			initSprite(button),
-			initSprite(loadTexture("halloween", "HalloweenHouse", "png"))
+			initSprite(loadTexture("halloween", "HalloweenHouse"))
 		};
 	}
 
 	private static Sprite[] initCuencaGraphics() {
-		Texture cuenca = loadTexture("cuenca", "Cuenca", "png");
+		Texture cuenca = loadTexture("cuenca", "Cuenca");
 		TextureRegion lorenaBus = extract(cuenca, 0, 0, 1, 2);
 		TextureRegion sergioBus = extract(cuenca, 1, 0, 1, 2);
 		TextureRegion lorenaCoa = extract(cuenca, 2, 0, 1, 2);
@@ -202,14 +202,35 @@ public class Assets {
 			initSprite(lorenaCoa, true, true),
 			initSprite(sergioCoa, true, true),
 			initSprite(suitcase, true, true),
-			initSprite(loadTexture("cuenca", "Grotte", "png")),
-			initSprite(loadTexture("cuenca", "TorreDeMangana", "png"))
+			initSprite(loadTexture("cuenca", "Grotte")),
+			initSprite(loadTexture("cuenca", "TorreDeMangana"))
 		};
 	}
 	
 	private static Sprite[] initQuarantineGraphics() {
+		Texture quarantine = loadTexture("quarantine", "Quarantine");
+		TextureRegion lorenaPijama = extract(quarantine, 0, 0, 1, 2);
+		TextureRegion lorenaStreet = extract(quarantine, 0, 3, 1, 2);
+		TextureRegion sergioPijama = extract(quarantine, 1, 0, 1, 2);
+		TextureRegion sergioStreet = extract(quarantine, 1, 3, 1, 2);
+		TextureRegion rex          = extract(quarantine, 3, 2, 1, 1);
+		TextureRegion machineOff   = extract(quarantine, 2, 0, 1, 2);
+		TextureRegion machineOn    = extract(quarantine, 3, 0, 1, 2);
+		TextureRegion sergioFace   = extract(quarantine, 0, 2, 1, 1);
+		TextureRegion hairPixel    = extract(quarantine, 2, 2, 1, 1);
+		TextureRegion blanket      = extract(quarantine, 4, 0, 5, 3);
 		return new Sprite[] {
-				
+			initSprite(lorenaPijama),
+			initSprite(lorenaStreet),
+			initSprite(sergioPijama),
+			initSprite(sergioStreet),
+			initSprite(rex),
+			initSprite(machineOff),
+			initSprite(machineOn),
+			initSprite(sergioFace),
+			initSprite(hairPixel),
+			initSprite(blanket),
+			initSprite(loadTexture("quarantine", "SanseStreet"))
 		};
 	}
 	
@@ -226,14 +247,14 @@ public class Assets {
 	}
 	
 	private static Sprite[] initVariousGraphics() {
-		Texture back = loadTexture("various", "Back", "png");
+		Texture back = loadTexture("various", "Back");
 		return new Sprite[] {
 			initSprite(back)
 		};
 	}
 	
-	private static Texture loadTexture(String parentFolder, String name, String format) {
-		Texture temp = new Texture(Gdx.files.internal(parentFolder+"/"+name+"."+format));
+	private static Texture loadTexture(String parentFolder, String name) {
+		Texture temp = new Texture(Gdx.files.internal(parentFolder+"/"+name+".png"));
 		temp.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		return temp;
 	}

@@ -1,7 +1,6 @@
 package com.seruji.hb.desktop;
 
 import java.awt.Toolkit;
-
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.seruji.hb.main.HappyBirthdayMain;
