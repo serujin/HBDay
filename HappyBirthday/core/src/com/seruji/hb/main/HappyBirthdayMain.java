@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.seruji.hb.model.Scene;
 import com.seruji.hb.scenes.Cuenca;
 import com.seruji.hb.scenes.DrivingLessons;
+import com.seruji.hb.scenes.EndGift;
 import com.seruji.hb.scenes.Halloween;
 import com.seruji.hb.scenes.Introduction;
 import com.seruji.hb.scenes.MainMenu;
@@ -17,13 +18,14 @@ import com.seruji.hb.utils.Assets;
 public class HappyBirthdayMain extends Game {
 	
 	private Scene[] scenes;
+	private boolean menu;
 	
 	@Override
 	public void create() {
 		Assets.load();
-		scenes = new Scene[9];
-		loadScenes();
-		changeScene(1);
+		scenes = new Scene[10];
+		menu = true;
+		changeScene(0);
 	}	
 	
 	public void changeScene(int scene) {
@@ -31,23 +33,15 @@ public class HappyBirthdayMain extends Game {
 		setScreen(scenes[scene]);
 	}
 	
-	private void loadScenes() {
-		scenes[0] = new Introduction(this);
-		scenes[1] = new MainMenu(this);
-		scenes[2] = new MovingToMadrid(this);
-		scenes[3] = new University(this);
-		scenes[4] = new Halloween(this);
-		scenes[5] = new Cuenca(this);
-		scenes[6] = new Quarantine(this);
-		scenes[7] = new DrivingLessons(this);
-		scenes[8] = new Summer(this);
-	}
-	
 	private void loadScene(int scene) {
 		Gdx.graphics.setContinuousRendering(scene != 1);
 		if(scene == 0) {
 			scenes[0] = new Introduction(this);
 		}	
+		if(scene == 1 && menu) {
+			scenes[1] = new MainMenu(this);
+			menu = false;
+		}
 		if(scene == 2) {
 			scenes[2] = new MovingToMadrid(this);
 		}
@@ -68,6 +62,9 @@ public class HappyBirthdayMain extends Game {
 		}
 		if(scene == 8) {
 			scenes[8] = new Summer(this);
+		}
+		if(scene == 9) {
+			scenes[9] = new EndGift(this);
 		}
 	}
 }

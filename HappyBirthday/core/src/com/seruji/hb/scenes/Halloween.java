@@ -80,7 +80,7 @@ public class Halloween extends Scene {
 			Utils.showText(batch, Assets.uniFont, Color.BLACK, "ZAPATILLAS", shoes.getPosition()[0] + xOff, shoes.getPosition()[1] + yOff);
 		}
 		if(scene == 3) {
-			Utils.showText(batch, font, Color.BLACK, " Ahora a descansar a casita\ndespués de la noche de baile\n   (Toca para ir al menú)", 351, 351);
+			Utils.showText(batch, font, Color.BLACK, " Ahora a descansar a casita\ndespués de la noche de baile\n   (Toca para ir al menú)", 352, 352);
 			Utils.showText(batch, font, Color.WHITE, " Ahora a descansar a casita\ndespués de la noche de baile\n   (Toca para ir al menú)", 350, 350);
 		}
 		update();
@@ -90,11 +90,12 @@ public class Halloween extends Scene {
 		if(Gdx.input.justTouched()) {
 			boolean end = scene == 3;
 			if(end) {
+				MainMenu.gamePassed(2);
 				changeScene(1);
 			}
 			Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
 			camera.unproject(touch);
-			if(scene == 0) {
+			if(scene == 0 && !cake.isEaten()) {
 				cake.changeState();
 			}
 			if(isTouched(head, touch)) {

@@ -32,6 +32,7 @@ public class MovingToMadrid extends Scene {
 		suitcase.draw();
 		fall();
 		if(catchedItems == clothes.length) {
+			Utils.showText(batch, font, Color.WHITE, "Ya estamos listos para ir a Madrid\n      (Toca para ir al menú)", 248, 398);
 			Utils.showText(batch, font, Color.BLACK, "Ya estamos listos para ir a Madrid\n      (Toca para ir al menú)", 250, 400);
 		} else {
 			Utils.showText(batch, Assets.uniFont, Color.BLACK, "¡Recoge la ropa para poder ir a Madrid!", 600, 30);
@@ -46,6 +47,7 @@ public class MovingToMadrid extends Scene {
 			suitcase.setPosition((int) ((int) touch.x - suitcase.getBounds().width/2), suitcase.getPosition()[1]);
 		}
 		if(catchedItems == clothes.length && Gdx.input.justTouched()) {
+			MainMenu.gamePassed(0);
 			changeScene(1);
 		}
 	}

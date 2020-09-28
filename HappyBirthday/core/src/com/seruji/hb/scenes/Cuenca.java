@@ -42,7 +42,7 @@ public class Cuenca extends Scene {
 			Utils.showText(batch, Assets.uniFont, Color.WHITE, "La cena de aniversario en La Grotte", 1250, 30);
 		}
 		if(scene == 3) {
-			Utils.showText(batch, font, Color.BLACK, " Ahora a descansar a casita\n después de la super cenita \n   (Toca para ir al menú)", 351, 351);
+			Utils.showText(batch, font, Color.BLACK, " Ahora a descansar a casita\n después de la super cenita \n   (Toca para ir al menú)", 352, 352);
 			Utils.showText(batch, font, Color.WHITE, " Ahora a descansar a casita\n después de la super cenita \n   (Toca para ir al menú)", 350, 350);
 		}
 		we.draw();
@@ -53,6 +53,7 @@ public class Cuenca extends Scene {
 		if(Gdx.input.justTouched()) {
 			boolean end = scene == 3;
 			if(end) {
+				MainMenu.gamePassed(3);
 				changeScene(1);
 			}
 		}
@@ -70,11 +71,11 @@ public class Cuenca extends Scene {
 				int x;
 				while(scene == 0) {
 					try {
-						Thread.sleep(50);
+						Thread.sleep(10);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					moveAll(10, -1, 0);
+					moveAll(2, -1, 0);
 					x = we.getPosition()[0];
 					if(x < -340) {
 						scene++;
@@ -84,13 +85,13 @@ public class Cuenca extends Scene {
 				we.changeScene();
 				while(scene == 1) {
 					try {
-						Thread.sleep(50);
+						Thread.sleep(10);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 					x = we.getPosition()[0];
 					if(x > 990) {
-						moveAll(5, -1, -1);
+						moveAll(2, -1, -1);
 					}
 					if(x < 991 && x > 800) {
 						we.setPosition(-900, we.getPosition()[1]);
@@ -101,15 +102,15 @@ public class Cuenca extends Scene {
 						}
 						we.setPosition(300, we.getPosition()[1]);
 						try {
-							Thread.sleep(1000);
+							Thread.sleep(2000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
+					}
+					if(x < 301) {
+						moveAll(2, -1, 1);
+					}
+					if(x < -200) {
 						scene++;
 					}
 				}
@@ -118,7 +119,7 @@ public class Cuenca extends Scene {
 				bg.changeScene();
 				for(int i = 0; i < 330; i++) {
 					try {
-						Thread.sleep(50);
+						Thread.sleep(20);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -126,7 +127,7 @@ public class Cuenca extends Scene {
 				}
 				for(int i = 0; i < 70; i++) {
 					try {
-						Thread.sleep(50);
+						Thread.sleep(20);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

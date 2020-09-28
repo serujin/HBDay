@@ -14,6 +14,7 @@ public class MainMenu extends Scene {
 	private Arrow arrow;
 	private int currentMiniGame;
 	private int[] x;
+	private static boolean[] gamesPassed = new boolean[7];
 	
 	public MainMenu(HappyBirthdayMain game) {
 		super(game, Assets.mainMenuBg);
@@ -26,14 +27,24 @@ public class MainMenu extends Scene {
 
 	@Override
 	protected void draw() {
+		if(allGamesPassed()) {
+			changeScene(9);
+		}
 		arrow.draw();
-		Utils.showText(batch, font, Color.BLACK,     "Mudanza", x[0], 510);
-		Utils.showText(batch, font, Color.BLACK, "Universidad", x[1], 510);
-		Utils.showText(batch, font, Color.BLACK,   "Halloween", x[2], 510);
-		Utils.showText(batch, font, Color.BLACK,      "Cuenca", x[3], 510);
-		Utils.showText(batch, font, Color.BLACK,  "Cuarentena", x[4], 510);
-		Utils.showText(batch, font, Color.BLACK,   "Prácticas", x[5], 510);
-		Utils.showText(batch, font, Color.BLACK,      "Verano", x[6], 510);
+		Utils.showText(batch, font, Color.WHITE,     "Mudanza", x[0], 510);
+		Utils.showText(batch, font, Color.WHITE, "Universidad", x[1], 510);
+		Utils.showText(batch, font, Color.WHITE,   "Halloween", x[2], 510);
+		Utils.showText(batch, font, Color.WHITE,      "Cuenca", x[3], 510);
+		Utils.showText(batch, font, Color.WHITE,  "Cuarentena", x[4], 510);
+		Utils.showText(batch, font, Color.WHITE,   "Prácticas", x[5], 510);
+		Utils.showText(batch, font, Color.WHITE,      "Verano", x[6], 510);
+		Utils.showText(batch, font, Color.WHITE,     "Mudanza", x[0] + 1, 511);
+		Utils.showText(batch, font, Color.WHITE, "Universidad", x[1] + 1, 511);
+		Utils.showText(batch, font, Color.WHITE,   "Halloween", x[2] + 1, 511);
+		Utils.showText(batch, font, Color.WHITE,      "Cuenca", x[3] + 1, 511);
+		Utils.showText(batch, font, Color.WHITE,  "Cuarentena", x[4] + 1, 511);
+		Utils.showText(batch, font, Color.WHITE,   "Prácticas", x[5] + 1, 511);
+		Utils.showText(batch, font, Color.WHITE,      "Verano", x[6] + 1, 511);
 		update();
 	}
 	
@@ -81,5 +92,15 @@ public class MainMenu extends Scene {
 			10770,
 			12825
 		};
+	}
+	
+	private boolean allGamesPassed() {
+		return gamesPassed[0] && gamesPassed[1] && gamesPassed[2] 
+			   && gamesPassed[3] && gamesPassed[4] && gamesPassed[5] 
+			   && gamesPassed[6];
+	}
+	
+	public static void gamePassed(int number) {
+		gamesPassed[number] = true;
 	}
 }

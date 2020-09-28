@@ -34,4 +34,9 @@ public abstract class GameObject {
 		bounds.x = x;
 		bounds.y = y;
 	}
+	
+	public void addSize(int xSize, int ySize) {
+		bounds.width += xSize;
+		bounds.height += ySize;
+	}
 }

@@ -21,7 +21,7 @@ public class Machine extends GameObject {
 		if(picked) {
 			draw = 1;
 		}
-		batch.draw(sprites[draw], bounds.x, bounds.y, bounds.width, bounds.height);
+		batch.draw(sprites[draw], bounds.x, bounds.y, bounds.width, bounds.height * 3);
 	}
 	
 	public void on() {

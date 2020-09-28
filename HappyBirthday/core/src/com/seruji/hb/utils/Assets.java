@@ -19,6 +19,7 @@ public class Assets {
 	public static Sprite quarantineBg;
 	public static Sprite drivingLessonsBg;
 	public static Sprite summerBg;
+	public static Sprite endGiftBg;
 	public static Sprite[] introductionSprites;
 	public static Sprite[] mainMenuSprites;
 	public static Sprite[] movingToMadridSprites;
@@ -29,6 +30,7 @@ public class Assets {
 	public static Sprite[] drivingLessonsSprites;
 	public static Sprite[] summerSprites;
 	public static Sprite[] variousSprites;
+	public static Sprite[] photos;
 	public static BitmapFont font;
 	public static BitmapFont uniFont;
 	
@@ -36,7 +38,6 @@ public class Assets {
 		font = initFont(100, "MenuFont");
 		uniFont = initFont(40, "UniFont");
 		initBackgrounds();
-		introductionSprites = initIntroductionSprites();
 		mainMenuSprites = initMainMenuGraphics();
 		movingToMadridSprites = initMovingToMadridGraphics();
 		universitySprites = initUniversityGraphics();
@@ -46,24 +47,53 @@ public class Assets {
 		drivingLessonsSprites = initDrivingLessonsGraphics();
 		summerSprites = initSummerGraphics();
 		variousSprites = initVariousGraphics();
+		loadPhotos();
+	}
+	
+	private static void loadPhotos() {
+		photos = new Sprite[] {
+			loadPhoto("Agosto_1"),
+			loadPhoto("Agosto_2"),
+			loadPhoto("Septiembre_1"),
+			loadPhoto("Septiembre_2"),
+			loadPhoto("Septiembre_3"),
+			loadPhoto("Octubre_1"),
+			loadPhoto("Octubre_2"),
+			loadPhoto("Noviembre_1"),
+			loadPhoto("Noviembre_2"),
+			loadPhoto("Diciembre_1"),
+			loadPhoto("Diciembre_2"),
+			loadPhoto("Enero_1"),
+			loadPhoto("Enero_2"),
+			loadPhoto("Febrero_1"),
+			loadPhoto("Febrero_2"),
+			loadPhoto("Marzo_1"),
+			loadPhoto("Marzo_2"),
+			loadPhoto("Abril_1"),
+			loadPhoto("Abril_2"),
+			loadPhoto("Mayo_1"),
+			loadPhoto("Mayo_2"),	
+			loadPhoto("Junio_1"),	
+			loadPhoto("Junio_2"),
+			loadPhoto("Extra_1"),
+			loadPhoto("Extra_2"),
+			loadPhoto("Extra_3"),
+			loadPhoto("Extra_4"),
+			loadPhoto("Extra_5")
+		};
 	}
 	
 	private static void initBackgrounds() {
-		introductionBg = null;
+		introductionBg = initSprite(loadTexture("introduction", "IntroBg"));
 		mainMenuBg = initSprite(loadTexture("mainmenu", "MainMenuBG"));
 		movingToMadridBg = initSprite(loadTexture("movingtomadrid", "RoomBG"));
 		universityBg = initSprite(loadTexture("university", "UniversityBG"));
 		halloweenBg = initSprite(loadTexture("halloween", "HalloweenBG"));
 		cuencaBg = initSprite(loadTexture("cuenca", "CuencaBg"));
 		quarantineBg = initSprite(loadTexture("quarantine", "SanseRoom"));
-		drivingLessonsBg = null;
-		summerBg = null;
-	}
-
-	private static Sprite[] initIntroductionSprites() {
-		return new Sprite[] {
-				
-		};
+		drivingLessonsBg = initSprite(loadTexture("drivingLessons", "DrivingBg1"));
+		summerBg = initSprite(loadTexture("summer", "SummerBg"));
+		endGiftBg = introductionBg;
 	}
 	
 	private static Sprite[] initMainMenuGraphics() {
@@ -235,15 +265,55 @@ public class Assets {
 	}
 	
 	private static Sprite[] initDrivingLessonsGraphics() {
-		return new Sprite[] {
-				
+		Texture drivingLessons = loadTexture("drivingLessons", "Driving");
+		TextureRegion car =      extract(drivingLessons, 0, 0, 6, 5);
+		TextureRegion roadMark = extract(drivingLessons, 6, 0, 1, 1);
+		TextureRegion woman =    extract(drivingLessons, 7, 0, 2, 4);
+		TextureRegion kid1 =     extract(drivingLessons, 6, 4, 1, 3);
+		TextureRegion kid2 =     extract(drivingLessons, 7, 4, 1, 3);
+		TextureRegion kid3 =     extract(drivingLessons, 8, 4, 1, 3);
+		TextureRegion lorena =   extract(drivingLessons, 0, 5, 1, 2);
+ 		return new Sprite[] {
+			initSprite(loadTexture("drivingLessons", "DrivingBg2")),
+			initSprite(loadTexture("drivingLessons", "DrivingBg3")),
+			initSprite(car),
+			initSprite(roadMark),
+			initSprite(woman),
+			initSprite(kid1),
+			initSprite(kid2),
+			initSprite(kid3),
+			initSprite(lorena)
 		};
 	}
 	
 	private static Sprite[] initSummerGraphics() {
+		Texture summer = loadTexture("summer", "Summer");
+		TextureRegion car1 =   extract(summer, 0, 0, 1, 1);
+		TextureRegion car2 =   extract(summer, 1, 0, 1, 1);
+		TextureRegion car3 =   extract(summer, 2, 0, 1, 1);
+		TextureRegion car4 =   extract(summer, 0, 1, 1, 1);
+		TextureRegion car5 =   extract(summer, 1, 1, 1, 1);
+		TextureRegion car6 =   extract(summer, 2, 1, 1, 1);
+		TextureRegion lorena = extract(summer, 3, 0, 1, 2);
 		return new Sprite[] {
-				
+			initSprite(loadTexture("summer", "SummerBg2")),
+			initSprite(loadTexture("summer", "Valldemossa")),
+			initSprite(car1),
+			initSprite(car2),
+			initSprite(car3),
+			initSprite(car4),
+			initSprite(car5),
+			initSprite(car6),
+			initSprite(lorena)
 		};
+	}
+	
+	private static Sprite loadPhoto(String name) {
+		Texture temp = new Texture(Gdx.files.internal("photos/"+name+".jpg"));
+		temp.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		Sprite tempS = new Sprite(temp);
+		tempS.flip(false, true);
+		return tempS;
 	}
 	
 	private static Sprite[] initVariousGraphics() {

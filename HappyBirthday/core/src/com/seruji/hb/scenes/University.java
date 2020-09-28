@@ -52,7 +52,7 @@ public class University extends Scene {
 		requiredPoints = 10;
 		setPoints(currentPoints);
 		stop = new Stop(0, stopPositions[1], 16, 16, batch);
-		stopSpeed = 7;
+		stopSpeed = 10;
 		manageSpeed();
 	}
 
@@ -68,7 +68,7 @@ public class University extends Scene {
 		if(scene == 1) {
 			roadMark.draw();
 			stop.draw();
-			Utils.showText(batch, Assets.uniFont, Color.WHITE, pointsText, 1810, 20);
+			Utils.showText(batch, Assets.uniFont, Color.WHITE, pointsText, 1680, 20);
 		}
 		if(scene == 0) {
 			busStop.draw();
@@ -90,9 +90,11 @@ public class University extends Scene {
 		}
 		if(scene == 3) {
 			Utils.showText(batch, font, Color.WHITE, "¡Has conseguido llegar a la universidad!\n        (Toca para ir al menú)", 183, 403);
+			Utils.showText(batch, font, Color.BLACK, "¡Has conseguido llegar a la universidad!\n        (Toca para ir al menú)", 179, 399);
 			Utils.showText(batch, font, Color.BLACK, "¡Has conseguido llegar a la universidad!\n        (Toca para ir al menú)", 180, 400);
 		}
 		if(scene == 3 && Gdx.input.justTouched()) {
+			MainMenu.gamePassed(1);
 			changeScene(1);
 		}
 	}
@@ -148,7 +150,7 @@ public class University extends Scene {
 		while(scene == 1) {
 			if(stop.getBounds().overlaps(bus.getBounds())) {
 				currentPoints = 0;
-				stopSpeed = 7;
+				stopSpeed = 10;
 				setPoints(currentPoints);
 				initStop();
 			}
@@ -208,13 +210,11 @@ public class University extends Scene {
 			finalY = stopPositions[positionY];
 		}
 		stop = new Stop(0, finalY, 16, 16, batch);
-		if(random.nextBoolean()) {
-			stopSpeed += random.nextInt(3);
-		}
+		stopSpeed += random.nextInt(5);
 	}
 	
 	private void setPoints(int points) {
-		pointsText = points + "/" + requiredPoints;
+		pointsText = "SCORE " + points + "/" + requiredPoints;
 	}
 
 }
